@@ -90,3 +90,7 @@
     border: none;
     padding: 8px 16px;
 }
+
+.featured-section .footer-section button i{
+    margin-right: .3rem;
+}

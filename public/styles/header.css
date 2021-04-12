@@ -1,0 +1,92 @@
+header{
+    width: 100%;
+    padding: 12px 24px;
+    background: var(--header);
+
+    display: grid;
+    grid-template-columns:220px 1fr 280px;
+    align-items: center;
+}
+
+/* Logo */
+
+header .logo-container{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+header .logo-container h1{
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-left: .8rem;
+}
+
+header .logo-container img{
+    width: 20%;
+}
+
+/* Navegação */
+
+nav.links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav.links ul{
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+}
+
+nav.links ul a{
+    font-size: .9rem;
+    font-weight: 600;
+
+}
+/* Filtro */
+
+header .filter{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+header .filter .search{
+    padding: 12px 24px;
+    width: 90%;
+    border-radius: 4px;
+    border: 1px solid #2b2727;
+    background: none;
+    color: var(--text);
+    outline: none;
+    box-shadow: 2px 2px 4px -4px rgba(0, 0, 0, 0.4);
+}
+
+header .filter:focus-within .search::placeholder{
+    visibility: hidden;
+}
+
+
+header .filter .search::placeholder{
+    color: var(--text);
+    padding-left: 1.2rem;
+}
+
+header .filter i{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #2b2727;
+    transition: transform 200ms  ease;
+}
+
+header .filter:focus-within i{
+    transform: translate(-50%,-50%);
+}

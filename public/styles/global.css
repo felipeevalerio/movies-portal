@@ -2,6 +2,7 @@
     --header:#C0C0C0;
     --body:#EEEEEE;
     --text:#2c2a2a;
+    --title:#1D2E41;
 }
 
 *{
@@ -18,7 +19,7 @@ body{
     font-family: "Helvetica Neue",Arial, Helvetica, sans-serif;
     color: var(--text);
     font-size: 62.5%;
-
+    min-height: 100vh;
 }
 
 a{

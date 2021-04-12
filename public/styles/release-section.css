@@ -1,0 +1,49 @@
+.release-section{
+    min-height: 90vh;
+    width: 100%;
+    background: var(--body);
+    display: grid;
+    grid-template-rows: 80px 1fr;
+}
+
+.release-section .title{
+    align-self: center;
+    justify-self: center;
+}
+
+.release-section h1{
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--title);
+}
+
+.release-section .content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    padding: 1.2rem 2.2rem;
+}
+
+.release-section .info{
+    display: grid;
+    grid-template-rows: 40px 100px 20px 40px 1fr;
+    gap:20px;
+}
+
+.release-section .info .sinopse{
+    font-size: 1rem;
+}
+
+.release-section .info .drp{
+    display: flex;
+    justify-content: space-between;
+    font-size: .9rem;
+}
+
+.release-section .info .staff{
+    font-size: 1rem;
+}
+
+.release-section .info .staff > p{
+    margin-bottom: .8rem;
+}

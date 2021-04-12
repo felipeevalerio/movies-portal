@@ -21,13 +21,14 @@ header .logo-container h1{
     font-size: 1.8rem;
     font-weight: 600;
     margin-left: .8rem;
+    letter-spacing: .8px;
 }
 
 header .logo-container img{
     width: 20%;
 }
 
-/* Navegação */
+/* Navegação */ 
 
 nav.links {
     display: flex;

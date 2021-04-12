@@ -3,7 +3,7 @@
     width: 100%;
     background: var(--body);
     display: grid;
-    grid-template-rows: 80px 1fr;
+    grid-template-rows: 80px 1fr 80px;
 }
 
 .release-section .title{
@@ -26,11 +26,13 @@
 
 .release-section .info{
     display: grid;
-    grid-template-rows: 40px 100px 20px 40px 1fr;
+    grid-template-rows: 40px 100px 20px 60px 40px;
     gap:20px;
 }
 
-.release-section .info .sinopse{
+.release-section .info .sinopse,
+.release-section .info .staff,
+.release-section .info .rating{
     font-size: 1rem;
 }
 
@@ -40,10 +42,50 @@
     font-size: .9rem;
 }
 
-.release-section .info .staff{
-    font-size: 1rem;
-}
 
 .release-section .info .staff > p{
     margin-bottom: .8rem;
+}
+
+.release-section .carousel{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.release-section .carousel ul{
+    display: flex;
+    justify-content: space-between;
+    width: 8%;
+}
+
+.release-section .carousel ul li input{
+    width: 1rem;
+    height: 1rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.release-section .carousel ul li input::before{
+    content:"";
+    background: #C6C6C6;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    transition: background 200ms ease;
+
+}
+
+.release-section .carousel ul li input:checked::before{
+    content:"";
+    background: #525252;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
 }

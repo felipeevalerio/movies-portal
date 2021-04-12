@@ -47,6 +47,26 @@ nav.links ul a{
     font-weight: 600;
 
 }
+
+nav.links ul a {
+    position: relative;
+}
+
+nav.links ul a::after{
+    content:"";
+    width: 0;
+    height: 3px;
+    position: absolute;
+    bottom: -5px;
+    left:0;
+    background: var(--primary-color);
+}
+
+nav.links ul a:hover::after{
+    width: 100%;
+    transition: all 300ms ease-in-out;
+
+}
 /* Filtro */
 
 header .filter{

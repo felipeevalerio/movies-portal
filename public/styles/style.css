@@ -1,0 +1,17 @@
+:root{
+    --header:#C0C0C0;
+    --body:#EEEEEE;
+    --text:#444444;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 62.5%;
+    font-family: "Helvetica Neue",Arial, Helvetica, sans-serif;
+}
+

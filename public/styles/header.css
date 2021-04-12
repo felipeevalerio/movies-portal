@@ -1,8 +1,12 @@
 header{
     width: 100%;
+    top: 0;
+    left: 0;
+    min-height: 10vh;
     padding: 12px 24px;
     background: var(--header);
-
+    position: fixed;
+    z-index: 2;
     display: grid;
     grid-template-columns:220px 1fr 280px;
     align-items: center;

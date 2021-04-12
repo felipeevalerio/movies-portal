@@ -48,6 +48,11 @@
     margin-bottom: .8rem;
 }
 
+.release-section .info .rating i:nth-child(6){
+    color:#52525285;
+}
+
+
 .release-section .carousel{
     display: flex;
     align-items: flex-start;

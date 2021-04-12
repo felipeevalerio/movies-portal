@@ -33,3 +33,9 @@ li{
     color: var(--text);
     
 }
+
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}

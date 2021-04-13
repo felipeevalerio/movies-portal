@@ -3,7 +3,7 @@
     width: 100%;
     display: grid;
     grid-template-rows: 40px 1fr 100px;
-    gap: 12px;
+    gap: 24px;
     margin-top: 10vh;
     padding: 0 7rem;
 }
@@ -71,13 +71,15 @@
     object-fit: cover;
 }
 
-.featured-section .footer-section{
+.featured-section .footer-section,
+.review-section .footer-section{
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
 }
 
-.featured-section .footer-section button{
+.featured-section .footer-section button,
+.review-section .footer-section button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,6 +93,7 @@
     padding: 8px 16px;
 }
 
-.featured-section .footer-section button i{
+.featured-section .footer-section button i,
+.review-section .footer-section button i{
     margin-right: .3rem;
 }

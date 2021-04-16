@@ -72,14 +72,16 @@
 }
 
 .featured-section .footer-section,
-.review-section .footer-section{
+.review-section .footer-section,
+.interviews-section .footer-section{
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
 }
 
 .featured-section .footer-section button,
-.review-section .footer-section button{
+.review-section .footer-section button,
+.interviews-section .footer-section button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,6 +93,13 @@
     font-weight: 700;
     border: none;
     padding: 8px 16px;
+    transition:all 300ms ease;
+}
+
+.featured-section .footer-section button:hover,
+.review-section .footer-section button:hover,
+.interviews-section .footer-section button:hover{
+    filter: opacity(.8);
 }
 
 .featured-section .footer-section button i,

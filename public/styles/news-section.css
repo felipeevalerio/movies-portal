@@ -10,18 +10,18 @@
 }
 
 .news-section h1,
-.about h1{
+.about h1,
+.editorial h1{
     font-size: 1.8rem;
     font-weight: 600;
     color: var(--title);
-    margin-top: 1.2rem;
+    margin: 1.2rem 0 2rem;
 }
 
 .news-section .news-grid{
     display: grid;
     grid-template-rows: repeat(3,1fr);
     gap: 32px;
-    margin-top: 2rem;
 }
 
 .news-section .news-grid .news{
@@ -89,4 +89,47 @@
     color: #F9F9F9;
     border-radius: 24px;
     font-weight: 600;
+}
+
+.about{
+    text-align: left;
+}
+
+.about .info{
+    font-size: 1rem;
+    
+}
+
+.about .editorial span{
+    display: flex;
+    justify-content: left;
+    font-size: .9rem;
+    align-items: center;
+}
+
+.about .editorial span i{
+    color: var(--title);
+    margin-right: .4rem;
+}
+
+.about .social-medias {
+    margin-top: 2rem;
+}
+
+.about .social-medias h3,
+.about .social-medias .socials span{
+    color:var(--title);
+    font-size:1.3rem;
+}
+
+.about .social-medias .socials span{
+    font-size: 2rem ;
+    cursor: pointer;
+}
+
+.about .social-medias .socials {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
 }

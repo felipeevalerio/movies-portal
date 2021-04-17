@@ -17,7 +17,7 @@ html{
 }
 
 body{
-    font-family: "Helvetica Neue",Arial, Helvetica, sans-serif;
+    font-family: "Roboto" , Helvetica, sans-serif;
     color: var(--text);
     font-size: 62.5%;
     min-height: 100vh;
@@ -38,4 +38,8 @@ select{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+p{
+    color: var(--text);
 }

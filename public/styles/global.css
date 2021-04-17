@@ -43,3 +43,24 @@ select{
 p{
     color: var(--text);
 }
+
+footer{
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    padding: 32px;
+    background: var(--body);
+    justify-content: center;
+    align-items: center;
+}
+
+footer p{
+    font-size: 1rem;
+    color: #484F57;
+}
+
+footer p.spotlight{
+    color: var(--title);
+    margin-left: .6rem;
+    font-weight: 600;
+}

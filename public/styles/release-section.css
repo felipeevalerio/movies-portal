@@ -20,15 +20,24 @@
 
 .release-section .content{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit,minmax(450px,1fr));
     gap: 18px;
     padding: 1.2rem 2.2rem;
 }
 
+.release-section .content .video{
+    width: 100%;
+}
+
+.release-section .content .video iframe{
+    width: 100%;
+}
 .release-section .info{
     display: grid;
     grid-template-rows: 40px 100px 20px 60px 40px;
     gap:20px;
+    max-width: 960px;
+    width: 100%;
 }
 
 .release-section .info .sinopse,

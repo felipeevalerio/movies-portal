@@ -107,4 +107,13 @@
     .release-section .info{
         text-align: center;
     }
+    .final-section{
+        display: block;
+    }
+}
+
+@media (max-width:735px){
+    .review-section .reviews-grid .review .footer-review {
+        margin-top: 2rem;
+    }
 }

@@ -4,7 +4,7 @@ header{
     left: 0;
     min-height: 10vh;
     padding: 12px 24px;
-    background: var(--header);
+    background: var(--primary-color);
     position: fixed;
     z-index: 2;
     display: grid;
@@ -26,6 +26,7 @@ header .logo-container h1{
     font-weight: 600;
     margin-left: .8rem;
     letter-spacing: .8px;
+    color: var(--body);
 }
 
 header .logo-container img{
@@ -49,11 +50,9 @@ nav.links ul{
 nav.links ul a{
     font-size: .9rem;
     font-weight: 600;
-
-}
-
-nav.links ul a {
+    color: var(--body);
     position: relative;
+
 }
 
 nav.links ul a::after{
@@ -84,11 +83,12 @@ header .filter .search{
     padding: 12px 24px;
     width: 90%;
     border-radius: 4px;
-    border: 1px solid #2b2727;
+    border: 1px solid #f7d5d5;
     background: none;
     color: var(--text);
     outline: none;
     box-shadow: 2px 2px 4px -4px rgba(0, 0, 0, 0.4);
+    color: var(--body);
 }
 
 header .filter:focus-within .search::placeholder{
@@ -97,9 +97,10 @@ header .filter:focus-within .search::placeholder{
 
 
 header .filter .search::placeholder{
-    color: var(--text);
+    color: var(--body);
     padding-left: 1.2rem;
 }
+
 
 header .filter i{
     position: absolute;
@@ -108,7 +109,7 @@ header .filter i{
     transform: translateY(-50%);
     font-size: 1.2rem;
     font-weight: 300;
-    color: #2b2727;
+    color: var(--body);
     transition: transform 200ms  ease;
 }
 

@@ -41,17 +41,17 @@
     }
 
     .menu-section.on{
-        position: absolute;
+        position: fixed;
         top: 0;
-        right: -30%;
-        background-color: var(--header);
-        width: 150vw;
+        right: 0;
+        background-color: var(--primary-color);
+        width: 100vw;
         height:100vh;
         z-index: 20;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-left: 60vw;
+        padding:4rem 0;
     }
 
     .menu-section.on .links{
@@ -59,18 +59,25 @@
     }
     
     .menu-section.on .links ul{
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:center;
+        width: 100%;
         text-align:center;
     }
 
     .menu-section.on .links ul a{
         transition-duration: 500ms;
         color: var(--title);
-        font-size: 3rem;
-        line-height: 8rem;
+        font-size: 2rem;
+        line-height: 3rem;
+        margin-bottom: 2rem;
         display: block;
     }
-
+    .menu-section.on .links ul a:last-child{
+        margin-bottom: 0;
+    }
     
     .menu-section.on .menu-toggle{
         position:absolute;

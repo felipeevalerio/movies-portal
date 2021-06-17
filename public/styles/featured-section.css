@@ -63,6 +63,13 @@
     align-self: center;
     justify-self:center;
     align-items: center;
+    transition:border 0.2s ease 0s, transform 0.2s ease 0s;
+    border: 2px solid transparent;
+}
+
+.featured-section .movies-grid .movie a:hover{
+    transform: translateY(-7px);
+    border-color: var(--primary-color);
 }
 
 .featured-section .movies-grid .movie img{

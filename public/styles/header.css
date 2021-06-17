@@ -62,7 +62,7 @@ nav.links ul a::after{
     position: absolute;
     bottom: -5px;
     left:0;
-    background: var(--primary-color);
+    background: var(--title);
 }
 
 nav.links ul a:hover::after{

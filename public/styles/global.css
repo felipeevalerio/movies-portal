@@ -40,6 +40,10 @@ select{
     appearance: none;
 }
 
+section{
+    min-width: 320px;
+}
+
 p{
     color: var(--text);
 }

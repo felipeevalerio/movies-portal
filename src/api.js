@@ -73,17 +73,50 @@ function createMovieInfo(movie){
 }
 
 
-function renderMovie(){
+async function renderMovie(){
+    const genres = await getGenres();
+
     const movieArea = document.querySelector(".movie-area");
     const movieFormat = {
         movieTitle: movieArea.querySelector(".info .header h1"),
         movieImage: movieArea.querySelector(".movie-area > img"),
-        movieRate: movieArea.querySelector(".info .header .rate p")
+        movieRate: movieArea.querySelector(".info .header .rate p"),
+        movieDescription: movieArea.querySelector(".description"),
+        movieTags: movieArea.querySelector(".footer .tags"),
+        movieReleaseDate: movieArea.querySelector(".footer .release-date")
     }
 
+
     const movie = JSON.parse(sessionStorage.getItem("movie"));
-    movieFormat.movieTitle.innerHTML = movie.original_title
-    movieFormat.movieRate.innerHTML = movie.vote_average
-    movieFormat.movieImage.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-    movieFormat.movieImage.alt = `Imagem de ${movie.original_title}`
+
+    const {movieTitle,movieRate,movieImage,movieDescription,movieTags,movieReleaseDate} = movieFormat;
+    const {original_title,poster_path,vote_average,overview,genre_ids,release_date} = movie;
+
+
+    const newGenres = genres.filter(genre => {
+        for(genreMovie of genre_ids){
+            if(genre.id === genreMovie)
+                return genre;
+        }
+    })
+
+    movieTitle.innerHTML = original_title;
+    movieRate.innerHTML = vote_average;
+    movieImage.src = `https://image.tmdb.org/t/p/w500/${poster_path}`;
+    movieImage.alt = `Imagem de ${original_title}`;
+    movieDescription.innerHTML = `<p>${overview}</p>`;
+    for(let genre of newGenres){
+        movieTags.innerHTML += `<p class="movie-tag">${genre.name}</p>`;
+    }
+    movieReleaseDate.innerHTML = `<p>${release_date}</p>`;
+
 }
+
+async function getGenres(){
+    const genres =  await fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=c05e5a932bbbe9533193ce829a545f1c&language=en-US")
+        .then(response => response.json())
+        .then(data =>data.genres)
+    
+    return genres;
+} 
+

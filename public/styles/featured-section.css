@@ -128,6 +128,7 @@
     font-size: 1.1rem;
     color: var(--primary-color);
     text-align: center;
+    min-height: 3rem;
 }
 
 .date-rate{

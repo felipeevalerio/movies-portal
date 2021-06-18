@@ -54,10 +54,10 @@ async function createMovieDiv(movies){
 
 
 function createMovieInfo(movie){
-    const {original_title,release_date,vote_average} = movie;
+    const {original_title,release_date,vote_average,poster_path} = movie;
 
     const movieInfo = `<a href="movie.html" id="${original_title}">
-        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ljPHd7WiPVKmuXi1hgQUpZQslbC.jpg" alt="Imagem de ${original_title}">
+        <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="Imagem de ${original_title}">
         <div class="movie-info">
             <h2>${original_title}</h2>
             <div class="date-rate">
@@ -77,10 +77,13 @@ function renderMovie(){
     const movieArea = document.querySelector(".movie-area");
     const movieFormat = {
         movieTitle: movieArea.querySelector(".info .header h1"),
+        movieImage: movieArea.querySelector(".movie-area > img"),
         movieRate: movieArea.querySelector(".info .header .rate p")
     }
 
     const movie = JSON.parse(sessionStorage.getItem("movie"));
     movieFormat.movieTitle.innerHTML = movie.original_title
     movieFormat.movieRate.innerHTML = movie.vote_average
+    movieFormat.movieImage.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+    movieFormat.movieImage.alt = `Imagem de ${movie.original_title}`
 }

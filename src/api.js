@@ -2,6 +2,13 @@ const moviesSection = document.querySelector(".movies-grid");
 
 showPopularMovies()
 
+
+if(location.pathname === "/src/movie.html"){
+    const body = document.querySelector("body")
+    body.style.overflowY = "hidden";
+    renderMovie();
+}
+
 async function getPopularMovies(){
     const movies = await fetch("https://api.themoviedb.org/3/movie/popular?api_key=c05e5a932bbbe9533193ce829a545f1c&language=en-US&page=1")
         .then(response => response.json())
@@ -13,37 +20,67 @@ async function getPopularMovies(){
 }
 
 async function showPopularMovies(){
-    const movies = await getPopularMovies();
-    createMovieDiv(movies)
+    let movies = await getPopularMovies();
+    const moviesInHTML = await createMovieDiv(movies)
+    if(moviesInHTML){
+        const moviesSec = moviesSection.querySelectorAll(".movie");
+        for(let movie of moviesSec){
+            const movieLink  = movie.querySelector("a");
+            movieLink.addEventListener("click",()=>{
+                for(let moviePromise of movies){
+                    if(moviePromise.original_title === movieLink.id){
+                        sessionStorage.setItem("movie",JSON.stringify(moviePromise));
 
+                    }
+                }
+            });            
+        }
+    }
 }
 
 
-
-function createMovieDiv(movies){
-    for(let movie of movies){
+async function createMovieDiv(movies){
+    movies.map(movie => {
         const movieDiv = document.createElement("div");
         const movieInfo = createMovieInfo(movie);
         movieDiv.innerHTML = movieInfo;
         movieDiv.classList.add("movie");
         moviesSection.appendChild(movieDiv);
-    }
-}
+        return movie;
+    })
+
+    return movies;
+} 
 
 
 function createMovieInfo(movie){
-const movieInfo = `<a href="movie.html">
-    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ljPHd7WiPVKmuXi1hgQUpZQslbC.jpg" alt="Imagem de ${movie.original_title}">
-    <div class="movie-info">
-        <h2>${movie.original_title}</h2>
-        <div class="date-rate">
-            <p>${movie.release_date}</p>
-            <div class="rate">
-                <img class="star" src="../public/assets/star.svg" alt="Nota de Avaliação"/><p>${movie.vote_average}</p>
+    const {original_title,release_date,vote_average} = movie;
+
+    const movieInfo = `<a href="movie.html" id="${original_title}">
+        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ljPHd7WiPVKmuXi1hgQUpZQslbC.jpg" alt="Imagem de ${original_title}">
+        <div class="movie-info">
+            <h2>${original_title}</h2>
+            <div class="date-rate">
+                <p>${release_date}</p>
+                <div class="rate">
+                    <img class="star" src="../public/assets/star.svg" alt="Nota de Avaliação"/><p>${vote_average}</p>
+                </div>
             </div>
         </div>
-    </div>
-</a>`
+    </a>`
 
-return movieInfo;
+    return movieInfo;
+}
+
+
+function renderMovie(){
+    const movieArea = document.querySelector(".movie-area");
+    const movieFormat = {
+        movieTitle: movieArea.querySelector(".info .header h1"),
+        movieRate: movieArea.querySelector(".info .header .rate p")
+    }
+
+    const movie = JSON.parse(sessionStorage.getItem("movie"));
+    movieFormat.movieTitle.innerHTML = movie.original_title
+    movieFormat.movieRate.innerHTML = movie.vote_average
 }

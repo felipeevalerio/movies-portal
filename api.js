@@ -1,17 +1,17 @@
 const moviesSection = document.querySelector(".movies-grid");
 
-if(location.pathname === "/src/index.html"){
+if(location.pathname === "/index.html"){
     showPopularMovies()
 }
 
-if(location.pathname === "/src/movie.html"){
+if(location.pathname === "movie.html"){
     const body = document.querySelector("body")
     body.style.overflowY = "hidden";
     renderMovie();
 }
 
 
-if(location.pathname === "/src/search.html"){
+if(location.pathname === "search.html"){
     renderSearchPage();
 }
 
@@ -70,7 +70,7 @@ function createMovieInfo(movie){
             <div class="date-rate">
                 <p>${release_date}</p>
                 <div class="rate">
-                    <img class="star" src="../public/assets/star.svg" alt="Nota de Avaliação"/><p>${vote_average}</p>
+                    <img class="star" src="star.svg" alt="Nota de Avaliação"/><p>${vote_average}</p>
                 </div>
             </div>
         </div>
@@ -144,13 +144,6 @@ async function renderSearchPage(){
     const filteredMovies = movies.filter(movie => movie.original_title === valueInput)
     showMovies(filteredMovies)
 
-    for(let filtered of filteredMovies){
-        const getHomePage = await fetch(`https://api.themoviedb.org/3/movie/${filtered}?api_key=c05e5a932bbbe9533193ce829a545f1c&language=en-US&page=1`)
-            .then(response => response.json())
-            .then(data => data.homepage)
-            
-        filtered.href = getHomePage
-    }
     const titleMovie = document.querySelector(".title-movie-search")
     titleMovie.innerHTML += valueInput
 }

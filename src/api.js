@@ -1,7 +1,8 @@
 const moviesSection = document.querySelector(".movies-grid");
 
-showPopularMovies()
-
+if(location.pathname === "/src/index.html"){
+    showPopularMovies()
+}
 
 if(location.pathname === "/src/movie.html"){
     const body = document.querySelector("body")
@@ -9,13 +10,19 @@ if(location.pathname === "/src/movie.html"){
     renderMovie();
 }
 
+
+if(location.pathname === "/src/search.html"){
+    renderSearchPage();
+}
+
+
 async function getPopularMovies(){
     const movies = await fetch("https://api.themoviedb.org/3/movie/popular?api_key=c05e5a932bbbe9533193ce829a545f1c&language=en-US&page=1")
         .then(response => response.json())
         .then(data => data.results)
 
     const filteredMovies = Array.from(movies).slice(0,4)
-
+    
     return filteredMovies
 }
 
@@ -120,3 +127,48 @@ async function getGenres(){
     return genres;
 } 
 
+
+
+function search(){
+    const searchInput = document.querySelector(".filter input")
+    searchInput.addEventListener("change",()=>{
+        sessionStorage.setItem("filter",searchInput.value);
+    })
+}
+
+search()
+
+async function renderSearchPage(){
+    const movies = await getPopularMovies();
+    const valueInput = sessionStorage.getItem("filter");
+    const filteredMovies = movies.filter(movie => movie.original_title === valueInput)
+    showMovies(filteredMovies)
+
+    for(let filtered of filteredMovies){
+        const getHomePage = await fetch(`https://api.themoviedb.org/3/movie/${filtered}?api_key=c05e5a932bbbe9533193ce829a545f1c&language=en-US&page=1`)
+            .then(response => response.json())
+            .then(data => data.homepage)
+            
+        filtered.href = getHomePage
+    }
+    const titleMovie = document.querySelector(".title-movie-search")
+    titleMovie.innerHTML += valueInput
+}
+
+
+async function showMovies(movies){
+    const moviesInHTML = await createMovieDiv(movies)
+    if(moviesInHTML){
+        const moviesSec = moviesSection.querySelectorAll(".movie");
+        for(let movie of moviesSec){
+            const movieLink  = movie.querySelector("a");
+            movieLink.addEventListener("click",()=>{
+                for(let moviePromise of movies){
+                    if(moviePromise.original_title === movieLink.id){
+                        sessionStorage.setItem("movie",JSON.stringify(moviePromise));
+                    }
+                }
+            });            
+        }
+    }
+}

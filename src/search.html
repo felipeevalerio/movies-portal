@@ -16,9 +16,8 @@
     <link rel="stylesheet" href="../public/styles/interviews-section.css">
     <link rel="stylesheet" href="../public/styles/news-section.css">
     <link rel="stylesheet" href="../public/styles/media.css">
-    <link rel="stylesheet" href="../public/styles/movie.css">
-    
-    
+    <link rel="stylesheet" href="../public/styles/search.css">
+
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -51,41 +50,38 @@
             </nav>
         </div>
         
-        <div class="filter">
+        <form class="filter" action="./search.html">
             <i class="material-icons">search</i>
             <input class="search" type="text" placeholder="Pesquisar Filme" >
-        </div>
+        </form>
     </header>
 
-    <section class="movie-area">
-        <img src="" alt="">
-        <div class="info">
-            <div class="header">
-                <h1 class="title">Cruela</h1>
-                <div class="rate">
-                    <img src="../public/assets/star.svg" alt="Nota de Avaliação">
-                    <p>4.6</p>
-                </div>
-            </div>
 
-            <div class="description">
-                <p></p>
-            </div>
-            <div class="footer">
-                <div class="tags">
+    <section class="featured-section search" id="featured">
+        <div class="header-section">
+            <h1 class="title-movie-search">Filtro: </h1>
+            <i class="material-icons">expand_more</i>
+            <select name="" id="">
+                <option value="">Categoria: TODOS</option>
+                <option value="">Aventura</option>
+                <option value="">Romance</option>
+                <option value="">Comédia</option>
+            </select>
+        </div>
+        <div class="movies-grid">
 
-                </div>
-                <p class="release-date"></p>
-            </div>
+        </div>
+        <div class="footer-section">
+            <button type="button"><i class="material-icons">add</i>Carregar mais filmes</button>
         </div>
     </section>
-
 
     <footer>
         <p>&copy; Copyright 2020 - Disciplina de Desenvolvimentos de Interface Web - </p>
         <p class="spotlight">ICEI PUC Minas</p>
     </footer>
-    <script src="./api.js"></script>
+
     <script src="./index.js"></script>
+    <script src="./api.js"></script>
 </body>
 </html>
